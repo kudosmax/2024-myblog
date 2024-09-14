@@ -49,8 +49,8 @@ export default function BlogCalendar({ posts }: CalendarProps) {
 
     return (
       <div className="custom-toolbar">
-        <div className="rbc-toolbar-label text-base sm:text-lg md:text-xl">
-          {moment(date).format("MMMM YYYY")}
+        <div className="custom-toolbar-label">
+          {moment(date).format("MMM YYYY")}
         </div>
         <div className="toolbar-buttons">
           <button onClick={goToToday}>today</button>
@@ -79,12 +79,11 @@ export default function BlogCalendar({ posts }: CalendarProps) {
   return (
     <div className="calendar-container">
       <Calendar
-        className="h-[50vh] sm:h-[60vh] md:h-[70vh]" // 여기를 수정
+        className="custom-calendar"
         localizer={localizer}
         events={events}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: "100%" }}
         views={["month"]}
         defaultView={Views.MONTH}
         date={currentDate}
@@ -94,6 +93,57 @@ export default function BlogCalendar({ posts }: CalendarProps) {
           event: CustomEvent,
         }}
       />
+      <style jsx global>{`
+        .custom-calendar {
+          height: 300px !important;
+        }
+        .custom-toolbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+        }
+        .custom-toolbar-label {
+          font-size: 1.17rem !important; // 0.9rem * 1.3
+          font-weight: bold;
+        }
+        .custom-calendar .rbc-month-view {
+          flex: 1;
+        }
+        .custom-calendar .rbc-month-row {
+          min-height: 2em;
+        }
+        .custom-calendar .rbc-header {
+          padding: 2px 0;
+        }
+        .custom-calendar .rbc-date-cell {
+          padding: 2px;
+        }
+        @media (min-width: 640px) {
+          .custom-calendar {
+            height: 400px !important;
+          }
+          .custom-toolbar-label {
+            font-size: 1.3rem !important; // 1rem * 1.3
+          }
+        }
+        @media (min-width: 768px) {
+          .custom-calendar {
+            height: 500px !important;
+          }
+          .custom-toolbar-label {
+            font-size: 1.43rem !important; // 1.1rem * 1.3
+          }
+        }
+        @media (min-width: 1024px) {
+          .custom-calendar {
+            height: 600px !important;
+          }
+          .custom-toolbar-label {
+            font-size: 1.56rem !important; // 1.2rem * 1.3
+          }
+        }
+      `}</style>
     </div>
   );
 }
