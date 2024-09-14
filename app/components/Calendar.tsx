@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Calendar, momentLocalizer, Views } from "react-big-calendar";
+import {
+  Calendar,
+  momentLocalizer,
+  Views,
+  ToolbarProps,
+} from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Post } from "../lib/api";
@@ -26,26 +31,20 @@ export default function BlogCalendar({ posts }: CalendarProps) {
     resource: post,
   }));
 
-  interface ToolbarProps {
-    date: Date;
-    onNavigate: (action: "prev" | "next" | "today", newDate?: Date) => void;
-  }
-
-  const CustomToolbar = ({ date, onNavigate }: ToolbarProps) => {
+  const CustomToolbar: React.FC<ToolbarProps<Event, object>> = ({
+    date,
+    onNavigate,
+  }) => {
     const goToBack = () => {
-      const newDate = new Date(date);
-      newDate.setMonth(date.getMonth() - 1);
-      onNavigate("prev", newDate);
+      onNavigate("PREV");
     };
 
     const goToNext = () => {
-      const newDate = new Date(date);
-      newDate.setMonth(date.getMonth() + 1);
-      onNavigate("next", newDate);
+      onNavigate("NEXT");
     };
 
     const goToToday = () => {
-      onNavigate("today", new Date());
+      onNavigate("TODAY");
     };
 
     return (
@@ -94,4 +93,12 @@ export default function BlogCalendar({ posts }: CalendarProps) {
       />
     </div>
   );
+}
+
+interface Event {
+  title: string;
+  start: Date;
+  end: Date;
+  allDay: boolean;
+  resource: Post;
 }
