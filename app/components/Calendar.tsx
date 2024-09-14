@@ -45,7 +45,7 @@ export default function BlogCalendar({ posts }: CalendarProps) {
     };
 
     const goToToday = () => {
-      onNavigate("TODAY", new Date());
+      onNavigate("today", new Date());
     };
 
     return (
