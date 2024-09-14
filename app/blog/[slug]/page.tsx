@@ -11,7 +11,7 @@ export default async function BlogPost({
 
   return (
     <article className="max-w-2xl mx-auto mt-10">
-      <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
+      <h1 className="text-4xl font-bold mb-6">{post.frontmatter.title}</h1>
       <div
         className="blog-content"
         dangerouslySetInnerHTML={{ __html: content }}
