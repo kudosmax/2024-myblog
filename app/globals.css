@@ -17,11 +17,258 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Pretendard Variable", Pretendard, /* 나머지 폰트 스택 */;
+  letter-spacing: -0.03em; /* 자간 줄이기. 필요에 따라 조정하세요. */
+  @apply transition-colors duration-200;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* 기존 스타일 유지 */
+
+.rbc-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.rbc-toolbar-label {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  flex: 1;
+}
+
+.rbc-btn-group {
+  display: flex;
+  gap: 5px;
+}
+
+.rbc-btn-group button {
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* 다크 모드 스타일 */
+.dark .rbc-toolbar-label {
+  color: white;
+}
+
+.dark .rbc-header {
+  color: white;
+}
+
+.dark .rbc-off-range-bg {
+  background-color: #1a202c;
+}
+
+.dark .rbc-today {
+  background-color: #2d3748;
+}
+
+.dark .rbc-btn-group button {
+  background-color: #2d3748;
+  color: white;
+  border-color: #4a5568;
+}
+
+/* 나머지 스타일은 그대로 유지 */
+
+.rbc-header {
+  padding: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.rbc-date-cell {
+  padding: 5px;
+}
+
+.rbc-event {
+  background-color: #3174ad;
+  color: white;
+  border: none;
+  border-radius: 0;
+  padding: 2px 5px;
+  font-size: 0.75rem;
+}
+
+.rbc-today {
+  background-color: #e8f4ff;
+}
+
+/* 이벤트 제목 크기 조정 */
+.rbc-event-content {
+  font-size: 0.75rem;
+}
+
+/* 기존 스타일 유지 */
+
+.calendar-container {
+  height: 600px;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+}
+
+.custom-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.toolbar-label {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.toolbar-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.toolbar-buttons button {
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.toolbar-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+.toolbar-buttons button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(49, 116, 173, 0.4);
+}
+
+/* 다크 모드 스타일 */
+.dark .calendar-container {
+  background-color: #0f1419; /* 매우 어두운 네이비 블루 */
+  color: #ededed;
+}
+
+.dark .toolbar-label {
+  color: #ffffff;
+}
+
+.dark .toolbar-buttons button {
+  background-color: #1e2732;
+  color: #ededed;
+  border-color: #2c3540;
+}
+
+.dark .toolbar-buttons button:hover {
+  background-color: #2c3540;
+}
+
+.dark .rbc-header {
+  color: #ededed;
+  border-bottom: 1px solid #2c3540;
+}
+
+.dark .rbc-month-view {
+  border: 1px solid #2c3540;
+}
+
+.dark .rbc-day-bg {
+  background-color: #0f1419;
+}
+
+.dark .rbc-off-range-bg {
+  background-color: #131820;
+}
+
+.dark .rbc-today {
+  background-color: #1e2732;
+}
+
+.dark .rbc-event {
+  background-color: #3174ad;
+  color: #ffffff;
+}
+
+.dark .rbc-date-cell {
+  color: #ededed;
+}
+
+.dark .rbc-off-range {
+  color: #6e7681;
+}
+
+.dark .rbc-day-bg + .rbc-day-bg,
+.dark .rbc-month-row + .rbc-month-row {
+  border-top: 1px solid #2c3540;
+}
+
+.dark .rbc-month-view .rbc-header + .rbc-header,
+.dark .rbc-day-bg + .rbc-day-bg {
+  border-left: 1px solid #2c3540;
+}
+
+/* 블로그 글 상세 페이지 스타일 */
+.blog-content {
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.blog-content h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.blog-content h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content p {
+  margin-bottom: 1.25rem;
+}
+
+/* 다크 모드 스타일 */
+.dark .blog-content {
+  color: #ededed;
+}
+
+.dark .blog-content h1,
+.dark .blog-content h2,
+.dark .blog-content h3,
+.dark .blog-content h4,
+.dark .blog-content h5,
+.dark .blog-content h6 {
+  color: #ffffff;
+}
+
+.dark .blog-content a {
+  color: #3b82f6;
+}
+
+.dark .blog-content strong {
+  color: #ffffff;
 }
