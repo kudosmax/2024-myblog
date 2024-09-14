@@ -26,7 +26,12 @@ export default function BlogCalendar({ posts }: CalendarProps) {
     resource: post,
   }));
 
-  const CustomToolbar = ({ date, onNavigate }: any) => {
+  interface ToolbarProps {
+    date: Date;
+    onNavigate: (action: "prev" | "next" | "today", newDate?: Date) => void;
+  }
+
+  const CustomToolbar = ({ date, onNavigate }: ToolbarProps) => {
     const goToBack = () => {
       const newDate = new Date(date);
       newDate.setMonth(date.getMonth() - 1);
@@ -55,7 +60,16 @@ export default function BlogCalendar({ posts }: CalendarProps) {
     );
   };
 
-  const CustomEvent = ({ event }: { event: any }) => (
+  interface EventProps {
+    event: {
+      title: string;
+      resource: {
+        slug: string;
+      };
+    };
+  }
+
+  const CustomEvent = ({ event }: EventProps) => (
     <Link href={`/blog/${event.resource.slug}`}>
       <span className="text-xs">{event.title}</span>
     </Link>
