@@ -49,7 +49,9 @@ export default function BlogCalendar({ posts }: CalendarProps) {
 
     return (
       <div className="custom-toolbar">
-        <div className="toolbar-label">{moment(date).format("MMMM YYYY")}</div>
+        <div className="rbc-toolbar-label text-base sm:text-lg md:text-xl">
+          {moment(date).format("MMMM YYYY")}
+        </div>
         <div className="toolbar-buttons">
           <button onClick={goToToday}>today</button>
           <button onClick={goToBack}>&lt;</button>
@@ -77,6 +79,7 @@ export default function BlogCalendar({ posts }: CalendarProps) {
   return (
     <div className="calendar-container">
       <Calendar
+        className="h-[50vh] sm:h-[60vh] md:h-[70vh]" // 여기를 수정
         localizer={localizer}
         events={events}
         startAccessor="start"

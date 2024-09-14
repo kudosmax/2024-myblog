@@ -272,3 +272,12 @@ body {
 .dark .blog-content strong {
   color: #ffffff;
 }
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  .rbc-month-view .rbc-date-cell {
+    padding: 1px;
+  }
+}
