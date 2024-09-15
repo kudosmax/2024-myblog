@@ -94,12 +94,36 @@ body {
 }
 
 .rbc-event {
-  background-color: #3174ad;
   color: white;
   border: none;
   border-radius: 0;
   padding: 2px 5px;
   font-size: 0.75rem;
+}
+
+.rbc-event.category-about {
+  background-color: #588157;
+}
+
+.rbc-event.category-me {
+  background-color: #3174ad;
+}
+
+.rbc-event.category-default {
+  background-color: #9ca3af;
+}
+
+/* 다크 모드 스타일 */
+.dark .rbc-event.category-about {
+  background-color: #3a5a40;
+}
+
+.dark .rbc-event.category-me {
+  background-color: #1e4976;
+}
+
+.dark .rbc-event.category-default {
+  background-color: #4b5563;
 }
 
 .rbc-today {
@@ -158,7 +182,7 @@ body {
 
 /* 다크 모드 스타일 */
 .dark .calendar-container {
-  background-color: #0f1419; /* 매우 어두운 네이비 블루 */
+  background-color: #101827; /* 매우 어두운 네이비 블루 */
   color: #ededed;
 }
 
@@ -186,7 +210,7 @@ body {
 }
 
 .dark .rbc-day-bg {
-  background-color: #0f1419;
+  background-color: #101827;
 }
 
 .dark .rbc-off-range-bg {

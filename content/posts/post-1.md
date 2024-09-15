@@ -1,7 +1,7 @@
 ---
-title: "안녕하세요"
+title: "ME 카테고리의 글"
 date: "2024-09-10"
-excerpt: "This is my first blog post"
+category: "ME"
 ---
 
 This is the content of my first blog post.

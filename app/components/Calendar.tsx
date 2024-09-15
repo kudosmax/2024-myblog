@@ -23,12 +23,24 @@ interface CalendarProps {
 export default function BlogCalendar({ posts }: CalendarProps) {
   const [currentDate, setCurrentDate] = useState(new Date());
 
+  const getCategoryClass = (category: string) => {
+    switch (category.toLowerCase()) {
+      case "about":
+        return "category-about";
+      case "me":
+        return "category-me";
+      default:
+        return "category-default";
+    }
+  };
+
   const events = posts.map((post) => ({
     title: post.frontmatter.title,
     start: new Date(post.frontmatter.date),
     end: new Date(post.frontmatter.date),
     allDay: true,
     resource: post,
+    categoryClass: getCategoryClass(post.frontmatter.category),
   }));
 
   const CustomToolbar: React.FC<ToolbarProps<Event, object>> = ({
@@ -72,12 +84,12 @@ export default function BlogCalendar({ posts }: CalendarProps) {
 
   const CustomEvent = ({ event }: EventProps) => (
     <Link href={`/blog/${event.resource.slug}`}>
-      <span className="text-xs">{event.title}</span>
+      <div className="text-xs">{event.title}</div>
     </Link>
   );
 
   return (
-    <div className="calendar-container">
+    <div className="calendar-container mt-10">
       <Calendar
         className="custom-calendar"
         localizer={localizer}
@@ -92,6 +104,9 @@ export default function BlogCalendar({ posts }: CalendarProps) {
           toolbar: CustomToolbar,
           event: CustomEvent,
         }}
+        eventPropGetter={(event) => ({
+          className: event.categoryClass,
+        })}
       />
       <style jsx global>{`
         .custom-calendar {

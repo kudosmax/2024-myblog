@@ -9,7 +9,7 @@ export interface Post {
   frontmatter: {
     title: string;
     date: string;
-    excerpt?: string;
+    category: string;
   };
   content: string;
 }
@@ -45,7 +45,7 @@ export function getPostBySlug(slug: string): Post {
       frontmatter: {
         title: data.title || "Untitled",
         date: data.date || new Date().toISOString().split("T")[0],
-        excerpt: data.excerpt || "",
+        category: data.category || "Uncategorized", // 카테고리 추가
       },
       content,
     };
@@ -56,9 +56,16 @@ export function getPostBySlug(slug: string): Post {
       frontmatter: {
         title: "Error",
         date: new Date().toISOString(),
-        excerpt: "There was an error loading this post.",
+        category: "Error",
       },
       content: "There was an error loading this post.",
     };
   }
+}
+
+export function getPostsByCategory(category: string): Post[] {
+  const allPosts = getAllPosts();
+  return allPosts.filter(
+    (post) => post.frontmatter.category.toLowerCase() === category.toLowerCase()
+  );
 }

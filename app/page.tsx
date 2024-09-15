@@ -1,12 +1,13 @@
-import Calendar from "./components/Calendar";
 import { getAllPosts } from "./lib/api";
+import BlogCalendar from "./components/Calendar";
 
 export default function Home() {
-  const posts = getAllPosts();
+  const allPosts = getAllPosts();
 
   return (
-    <div className="container mx-auto p-4">
-      <Calendar posts={posts} />
+    <div>
+      {/* <h1 className="text-2xl font-bold mb-4">All Posts</h1> */}
+      <BlogCalendar posts={allPosts} />
     </div>
   );
 }

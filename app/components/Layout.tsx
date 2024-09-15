@@ -1,38 +1,51 @@
+"use client"; // 클라이언트 컴포넌트로 변경
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import DarkModeToggle from "./DarkModeToggle";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  const NavLink = ({
+    href,
+    children,
+  }: {
+    href: string;
+    children: React.ReactNode;
+  }) => {
+    const isActive =
+      pathname === href || (href !== "/" && pathname.startsWith(href));
+    return (
+      <Link
+        href={href}
+        className={`mr-4 sm:mr-6 text-sm sm:text-base text-gray-900 dark:text-gray-100 relative group ${
+          isActive ? "font-semibold" : ""
+        }`}
+      >
+        {children}
+        {isActive && (
+          <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gray-900 dark:bg-gray-100 rounded-full"></span>
+        )}
+        <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gray-900 dark:bg-gray-100 group-hover:w-full transition-all duration-300"></span>
+      </Link>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
-        {" "}
-        {/* 여기를 수정 */}
         <header className="py-4 sm:py-6 md:py-8 flex justify-between items-center">
-          {" "}
-          {/* 여기를 수정 */}
           <nav>
-            <Link
-              href="/"
-              className="mr-4 sm:mr-6 text-sm sm:text-base text-gray-900 dark:text-gray-100"
-            >
-              {" "}
-              {/* 여기를 수정 */}홈
-            </Link>
-            <Link
-              href="/blog"
-              className="text-sm sm:text-base text-gray-900 dark:text-gray-100"
-            >
-              {" "}
-              {/* 여기를 수정 */}
-              블로그
-            </Link>
+            <NavLink href="/">All</NavLink>
+            <NavLink href="/category/about">About</NavLink>
+            <NavLink href="/category/me">ME</NavLink>
           </nav>
           <DarkModeToggle />
         </header>
         <main className="text-gray-900 dark:text-gray-100 text-sm sm:text-base">
           {children}
-        </main>{" "}
-        {/* 여기를 수정 */}
+        </main>
       </div>
     </div>
   );
