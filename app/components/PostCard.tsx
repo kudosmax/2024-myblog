@@ -11,7 +11,6 @@ export default function PostCard({ post }: { post: Post }) {
         {post.frontmatter.title || "Untitled"}
       </h2>
       <p className="text-gray-600">{post.frontmatter.date || "No date"}</p>
-      <p className="mt-2">{post.frontmatter.excerpt || "No excerpt"}</p>
     </div>
   );
 }
