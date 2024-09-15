@@ -43,10 +43,9 @@ export default function BlogCalendar({ posts }: CalendarProps) {
     categoryClass: getCategoryClass(post.frontmatter.category),
   }));
 
-  const CustomToolbar: React.FC<ToolbarProps<Event, object>> = ({
-    date,
-    onNavigate,
-  }) => {
+  const CustomToolbar: React.FC<
+    Pick<ToolbarProps<Event>, "date" | "onNavigate">
+  > = ({ date, onNavigate }) => {
     const goToBack = () => {
       onNavigate("PREV");
     };
@@ -89,7 +88,7 @@ export default function BlogCalendar({ posts }: CalendarProps) {
   );
 
   return (
-    <div className="calendar-container mt-10">
+    <div className="calendar-container">
       <Calendar
         className="custom-calendar"
         localizer={localizer}

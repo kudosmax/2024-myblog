@@ -9,7 +9,7 @@ export interface Post {
   frontmatter: {
     title: string;
     date: string;
-    category: string;
+    category: string; // 이 줄이 있는지 확인해주세요
   };
   content: string;
 }
