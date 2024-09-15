@@ -30,7 +30,7 @@ export default async function BlogPost({
         </span>
       </div>
       <div
-        className="prose dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-700 dark:prose-p:text-gray-300 max-w-none"
+        className="prose dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-700 dark:prose-p:text-gray-300 max-w-none pb-32"
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </article>

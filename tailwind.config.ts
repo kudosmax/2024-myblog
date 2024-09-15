@@ -7,7 +7,6 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class", // 또는 'media'
   theme: {
     extend: {
       typography: ({ theme }: { theme: (path: string) => string }) => ({
@@ -44,6 +43,7 @@ const config: Config = {
       }),
     },
   },
+  darkMode: "class",
   plugins: [typography],
 };
 
