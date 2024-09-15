@@ -17,10 +17,13 @@
     "react": "^18",
     "react-big-calendar": "^1.14.0",
     "react-dom": "^18",
+    "react-markdown": "^9.0.1",
     "remark": "^15.0.1",
+    "remark-gfm": "^4.0.0",
     "remark-html": "^16.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
     "@types/classnames": "^2.3.1",
     "@types/node": "^20",
     "@types/react": "^18",
