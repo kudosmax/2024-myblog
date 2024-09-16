@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import {
   Calendar,
   momentLocalizer,
@@ -21,6 +21,7 @@ interface CalendarProps {
 }
 
 export default function BlogCalendar({ posts }: CalendarProps) {
+  const [isReady, setIsReady] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const getCategoryClass = (category: string) => {
@@ -34,43 +35,51 @@ export default function BlogCalendar({ posts }: CalendarProps) {
     }
   };
 
-  const events = posts.map((post) => ({
-    title: post.frontmatter.title,
-    start: new Date(post.frontmatter.date),
-    end: new Date(post.frontmatter.date),
-    allDay: true,
-    resource: post,
-    categoryClass: getCategoryClass(post.frontmatter.category),
-  }));
+  const events = useMemo(
+    () =>
+      posts.map((post) => ({
+        title: post.frontmatter.title,
+        start: new Date(post.frontmatter.date),
+        end: new Date(post.frontmatter.date),
+        allDay: true,
+        resource: post,
+        categoryClass: getCategoryClass(post.frontmatter.category),
+      })),
+    [posts]
+  );
 
-  const CustomToolbar: React.FC<
-    Pick<ToolbarProps<Event>, "date" | "onNavigate">
-  > = ({ date, onNavigate }) => {
-    const goToBack = () => {
-      onNavigate("PREV");
-    };
+  const CustomToolbar = useCallback(
+    ({
+      date,
+      onNavigate,
+    }: Pick<ToolbarProps<Event>, "date" | "onNavigate">) => {
+      const goToBack = () => {
+        onNavigate("PREV");
+      };
 
-    const goToNext = () => {
-      onNavigate("NEXT");
-    };
+      const goToNext = () => {
+        onNavigate("NEXT");
+      };
 
-    const goToToday = () => {
-      onNavigate("TODAY");
-    };
+      const goToToday = () => {
+        onNavigate("TODAY");
+      };
 
-    return (
-      <div className="custom-toolbar">
-        <div className="custom-toolbar-label">
-          {moment(date).format("MMM YYYY")}
+      return (
+        <div className="custom-toolbar">
+          <div className="custom-toolbar-label">
+            {moment(date).format("MMM YYYY")}
+          </div>
+          <div className="toolbar-buttons">
+            <button onClick={goToToday}>today</button>
+            <button onClick={goToBack}>&lt;</button>
+            <button onClick={goToNext}>&gt;</button>
+          </div>
         </div>
-        <div className="toolbar-buttons">
-          <button onClick={goToToday}>today</button>
-          <button onClick={goToBack}>&lt;</button>
-          <button onClick={goToNext}>&gt;</button>
-        </div>
-      </div>
-    );
-  };
+      );
+    },
+    []
+  );
 
   interface EventProps {
     event: {
@@ -81,11 +90,22 @@ export default function BlogCalendar({ posts }: CalendarProps) {
     };
   }
 
-  const CustomEvent = ({ event }: EventProps) => (
-    <Link href={`/blog/${event.resource.slug}`}>
-      <div className="text-xs">{event.title}</div>
-    </Link>
+  const CustomEvent = useCallback(
+    ({ event }: EventProps) => (
+      <Link href={`/blog/${event.resource.slug}`}>
+        <div className="text-xs">{event.title}</div>
+      </Link>
+    ),
+    []
   );
+
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
+
+  if (!isReady || !posts || posts.length === 0) {
+    return <div>Loading...</div>; // 또는 원하는 로딩 인디케이터
+  }
 
   return (
     <div className="calendar-container">
