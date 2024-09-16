@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f7f7;
+  --foreground: #f3eed4;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #100d0e;
+    --foreground: #f3eed4;
   }
 }
 
@@ -191,7 +191,7 @@ body {
 
 /* 다크 모드 스타일 */
 .dark .calendar-container {
-  background-color: #101827; /* 매우 어두운 네이비 블루 */
+  background-color: #100d0e; /* 매우 어두운 네이비 블루 */
   color: #ededed;
 }
 
@@ -219,15 +219,15 @@ body {
 }
 
 .dark .rbc-day-bg {
-  background-color: #101827;
+  background-color: #100d0e;
 }
 
 .dark .rbc-off-range-bg {
-  background-color: #131820;
+  background-color: #1a1614; /* 약간 더 밝은 색상 */
 }
 
 .dark .rbc-today {
-  background-color: #1e2732;
+  background-color: #1e1b1a; /* 오늘 날짜를 위한 약간 더 밝은 색상 */
 }
 
 .dark .rbc-event {
@@ -245,7 +245,7 @@ body {
 
 .dark .rbc-day-bg + .rbc-day-bg,
 .dark .rbc-month-row + .rbc-month-row {
-  border-top: 1px solid #2c3540;
+  border-color: #2c2826; /* 셀 사이의 테두리 색상 조정 */
 }
 
 .dark .rbc-month-view .rbc-header + .rbc-header,
@@ -313,4 +313,20 @@ body {
   .rbc-month-view .rbc-date-cell {
     padding: 1px;
   }
+}
+
+.prose blockquote {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  overflow-x: visible;
+}
+
+.prose pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  overflow-x: visible;
 }

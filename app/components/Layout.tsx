@@ -19,7 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
       <Link
         href={href}
-        className={`mr-4 sm:mr-6 text-sm sm:text-base text-gray-900 dark:text-gray-100 relative group ${
+        className={`mr-4 sm:mr-6 text-sm sm:text-base text-[#231F20] dark:text-[#F3EED4] relative group ${
           isActive ? "font-semibold" : ""
         }`}
       >
@@ -33,7 +33,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+    <div className="min-h-screen bg-[#F7F7F7] dark:bg-[#100D0E] text-[#231F20] dark:text-[#F3EED4] transition-colors duration-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
         <header className="py-4 sm:py-6 md:py-8 flex justify-between items-center">
           <nav>
