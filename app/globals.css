@@ -14,12 +14,21 @@
   }
 }
 
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: "Pretendard Variable", Pretendard, /* 나머지 폰트 스택 */;
-  letter-spacing: -0.03em; /* 자간 줄이기. 필요에 따라 조정하세요. */
-  @apply transition-colors duration-200;
+  background-color: #101827; /* 페이지 배경색과 동일하게 설정 */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+#__next {
+  min-height: 100vh;
 }
 
 @layer utilities {

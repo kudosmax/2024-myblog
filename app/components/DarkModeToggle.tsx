@@ -16,7 +16,7 @@ export default function DarkModeToggle() {
       className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      {theme === "dark" ? "🐥" : "🦉"}
+      {theme === "dark" ? "🔅" : "🌑"}
     </button>
   );
 }
