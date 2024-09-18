@@ -25,9 +25,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         {children}
         {isActive && (
-          <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gray-900 dark:bg-gray-100 rounded-full"></span>
+          <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-1 h-1 bg-[#231F20] dark:bg-[#F3EED4] rounded-full"></span>
         )}
-        <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gray-900 dark:bg-gray-100 group-hover:w-full transition-all duration-300"></span>
+        <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#231F20] dark:bg-[#F3EED4] group-hover:w-full transition-all duration-300"></span>
       </Link>
     );
   };
