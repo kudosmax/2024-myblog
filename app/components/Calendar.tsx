@@ -108,7 +108,7 @@ export default function BlogCalendar({ posts }: CalendarProps) {
   }
 
   return (
-    <div className="calendar-container">
+    <div className="calendar-container pt-16">
       <Calendar
         className="custom-calendar"
         localizer={localizer}
