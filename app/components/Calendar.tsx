@@ -100,7 +100,11 @@ export default function BlogCalendar({ posts }: CalendarProps) {
   );
 
   useEffect(() => {
-    setIsReady(true);
+    const timer = setTimeout(() => {
+      setIsReady(true);
+    }, 1000); // 1초 후에 isReady를 true로 설정
+
+    return () => clearTimeout(timer);
   }, []);
 
   if (!isReady || !posts || posts.length === 0) {
