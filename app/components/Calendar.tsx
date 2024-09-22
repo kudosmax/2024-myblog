@@ -21,7 +21,7 @@ interface CalendarProps {
 }
 
 export default function BlogCalendar({ posts }: CalendarProps) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isReady, setIsReady] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const getCategoryClass = (category: string) => {
@@ -100,17 +100,11 @@ export default function BlogCalendar({ posts }: CalendarProps) {
   );
 
   useEffect(() => {
-    if (posts && posts.length > 0) {
-      setIsLoading(false);
-    }
-  }, [posts]);
+    setIsReady(true);
+  }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!posts || posts.length === 0) {
-    return <div>No posts available</div>;
+  if (!isReady || !posts || posts.length === 0) {
+    return <div>Loading...</div>; // 또는 원하는 로딩 인디케이터
   }
 
   return (
