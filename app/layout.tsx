@@ -3,8 +3,8 @@ import Layout from "./components/Layout";
 import "./globals.css";
 
 export const metadata = {
-  title: "My Blog",
-  description: "A blog built with Next.js and Markdown",
+  title: "PCTWORLD",
+  description: "WELCOME",
 };
 
 export default function RootLayout({
