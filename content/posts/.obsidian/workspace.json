@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1021.md",
+                "file": "1027.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1021"
+              "title": "1027"
             }
           }
         ]
@@ -164,8 +164,8 @@
   },
   "active": "7217fba98b53284b",
   "lastOpenFiles": [
-    "1001.md",
     "1021.md",
+    "1001.md",
     "2024-10-23.md",
     "0923.md",
     "0918.md",
