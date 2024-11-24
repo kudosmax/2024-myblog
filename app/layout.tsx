@@ -16,7 +16,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className="bg-background-light dark:bg-background-dark"
+      className="bg-[#F7F7F7] dark:bg-[#100D0E]"
     >
       <head>
         <link
@@ -25,7 +25,7 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
         />
       </head>
-      <body className="bg-background-light dark:bg-background-dark min-h-screen overflow-y-auto">
+      <body className="bg-[#F7F7F7] dark:bg-[#100D0E] min-h-screen overflow-y-auto">
         <Providers>
           <Layout>{children}</Layout>
         </Providers>

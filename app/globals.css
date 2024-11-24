@@ -2,28 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 파일 상단에 추가 */
-:root {
-  background-color: #f7f7f7; /* 라이트 모드의 배경색 */
-  overflow: hidden; /* 루트 레벨에서 오버플로우 숨김 */
+/* 기본 배경색 설정 */
+:root,
+html,
+body {
+  background-color: #F7F7F7;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    background-color: #100d0e; /* 다크 모드의 배경색 */
-  }
+:root.dark,
+html.dark,
+body.dark {
+  background-color: #100D0E;
 }
 
-html {
-  @apply bg-background-light dark:bg-background-dark;
-  height: 100%; /* html을 전체 높이로 설정 */
-  overflow: hidden; /* html에서 오버플로우 숨김 */
+html, 
+body {
+  height: 100%;
 }
 
 body {
-  @apply bg-background-light dark:bg-background-dark;
-  height: 100%; /* body를 전체 높이로 설정 */
-  overflow: auto; /* body에서 스크롤 허용 */
+  overflow-y: auto;
 }
 
 #__next {

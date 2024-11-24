@@ -33,7 +33,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F7F7] dark:bg-[#100D0E] text-[#231F20] dark:text-[#F3EED4] transition-colors duration-200">
+    <div className="min-h-screen bg-[#F7F7F7] dark:bg-[#100D0E] text-[#231F20] dark:text-[#F3EED4] transition-colors duration-200 overflow-x-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
         <header className="py-4 sm:py-6 md:py-8 flex justify-between items-center">
           <nav>
