@@ -2,6 +2,7 @@ import { getPostBySlug } from "@/app/lib/api";
 import markdownToHtml from "@/app/lib/markdownToHtml";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
+import ImageLoader from "@/app/components/ImageLoader";
 
 export default async function BlogPost({
   params,
@@ -33,6 +34,7 @@ export default async function BlogPost({
         className="prose dark:prose-invert prose-headings:text-[#231F20] dark:prose-headings:text-[#F3EED4] prose-p:text-[#231F20] dark:prose-p:text-[#F3EED4] max-w-none pb-32 prose-pre:bg-[#E9EAEC] prose-pre:text-[#231F20] dark:prose-pre:bg-[#1B1918] dark:prose-pre:text-[#F9F4DA] prose-code:bg-transparent prose-code:text-[#231F20] dark:prose-code:text-[#F9F4DA] prose-code:italic"
         dangerouslySetInnerHTML={{ __html: content }}
       />
+      <ImageLoader />
     </article>
   );
 }

@@ -21,7 +21,6 @@ interface CalendarProps {
 }
 
 export default function DynamicCalendar({ posts }: CalendarProps) {
-  const [isReady, setIsReady] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const getCategoryClass = (category: string) => {
@@ -99,12 +98,8 @@ export default function DynamicCalendar({ posts }: CalendarProps) {
     []
   );
 
-  useEffect(() => {
-    setIsReady(true);
-  }, []);
-
-  if (!isReady || !posts || posts.length === 0) {
-    return <div>Loading...</div>; // 또는 원하는 로딩 인디케이터
+  if (!posts || posts.length === 0) {
+    return <div>Loading...</div>;
   }
 
   return (

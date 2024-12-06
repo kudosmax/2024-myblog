@@ -303,6 +303,44 @@ body {
   color: #ffffff;
 }
 
+/* 이미지 렌더링 개선 */
+.prose img {
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.prose img.loading {
+  filter: blur(10px);
+  opacity: 0;
+}
+
+.prose img.loaded {
+  filter: blur(0);
+  opacity: 1;
+}
+
+.prose .img-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 비율 */
+  background-color: #f0f0f0;
+  overflow: hidden;
+  margin: 1.5em 0;
+}
+
+.prose .img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dark .prose .img-container {
+  background-color: #1a1a1a;
+}
+
 @media (max-width: 640px) {
   html {
     font-size: 14px;
