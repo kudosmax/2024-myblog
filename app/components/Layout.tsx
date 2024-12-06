@@ -19,7 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
       <Link
         href={href}
-        className={`mr-4 sm:mr-6 text-sm sm:text-base text-[#231F20] dark:text-[#F3EED4] relative group ${
+        className={`mr-4 sm:mr-6 text-sm sm:text-base text-[#231F20] dark:text-[#F3EED4] relative ${
           isActive ? "font-semibold" : ""
         }`}
       >
@@ -27,7 +27,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {isActive && (
           <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-1 h-1 bg-[#231F20] dark:bg-[#F3EED4] rounded-full"></span>
         )}
-        <span className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#231F20] dark:bg-[#F3EED4] group-hover:w-full transition-all duration-300"></span>
       </Link>
     );
   };
@@ -37,9 +36,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
         <header className="py-4 sm:py-6 md:py-8 flex justify-between items-center">
           <nav>
-            <NavLink href="/">All</NavLink>
-            <NavLink href="/category/about">About</NavLink>
-            <NavLink href="/category/me">ME</NavLink>
+            <NavLink href="/">🌐</NavLink>
+            <NavLink href="/category/about">🥖</NavLink>
+            <NavLink href="/category/me">💬</NavLink>
           </nav>
           <DarkModeToggle />
         </header>
