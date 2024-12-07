@@ -2,7 +2,6 @@ import { remark } from "remark";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import imgSize from "rehype-img-size";
-import path from "path";
 
 export default async function markdownToHtml(markdown: string) {
   const result = await remark()

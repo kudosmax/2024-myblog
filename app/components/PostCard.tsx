@@ -7,7 +7,7 @@ export default function PostCard({ post }: { post: Post }) {
 
   return (
     <div className="border p-4 rounded-lg hover:shadow-md transition-shadow">
-      <h2 className="text-xl font-bold">
+      <h2 className="text-base sm:text-xl font-bold">
         {post.frontmatter.title || "Untitled"}
       </h2>
       <p className="text-gray-600">{post.frontmatter.date || "No date"}</p>

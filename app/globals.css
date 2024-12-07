@@ -341,12 +341,71 @@ body {
   background-color: #1a1a1a;
 }
 
+/* Markdown 이미지 스타일링 */
+.prose img {
+  width: 40% !important;
+  height: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+.prose img.loading {
+  filter: blur(20px);
+  opacity: 0;
+  transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.prose img.loaded {
+  filter: blur(0);
+  opacity: 1;
+}
+
 @media (max-width: 640px) {
   html {
     font-size: 14px;
   }
   .rbc-month-view .rbc-date-cell {
     padding: 1px;
+  }
+}
+
+/* Calendar responsive styles */
+@media (max-width: 640px) {
+  .calendar-container {
+    height: 450px;  /* 모바일에서 캘린더 높이 줄임 */
+  }
+
+  .custom-toolbar {
+    padding: 8px 0;
+  }
+
+  .toolbar-label {
+    font-size: 1rem;  /* 모바일에서 월/연도 텍스트 크기 줄임 */
+  }
+
+  .toolbar-buttons button {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+
+  .rbc-header {
+    padding: 6px;
+    font-size: 0.75rem;  /* 요일 텍스트 크기 줄임 */
+  }
+
+  .rbc-date-cell {
+    padding: 2px;
+    font-size: 0.75rem;  /* 날짜 텍스트 크기 줄임 */
+  }
+
+  .rbc-event {
+    padding: 1px 3px;
+    font-size: 0.65rem;  /* 이벤트 텍스트 크기 줄임 */
+  }
+
+  .rbc-event-content {
+    font-size: 0.65rem;
   }
 }
 
